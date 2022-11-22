@@ -14,6 +14,8 @@
     <modules>
         <module>bigdata-zookeeper</module>
         <module>bigdata-hdfs</module>
+        <module>bigdata-mapreduce</module>
+        <module>bigdata-spark</module>
     </modules>
     
     <properties>
