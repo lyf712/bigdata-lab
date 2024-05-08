@@ -23,6 +23,8 @@ public class ApiTests {
    // private final static String NJU_URL = "172.19.240.61:2181,172.19.240.178:2181,172.19.240.191:2181";//112.124.24.187
 
     private final static String NJU_URL = "112.124.24.187:2181";
+
+    private final static String LOCAL_URL = "localhost:2181";
     // 集群情况下 session loss,集群间的心跳机制超时》》？需要设置调整
     private ZooKeeper zooKeeper;
 
@@ -30,7 +32,7 @@ public class ApiTests {
     @Before
     public void testCon() throws IOException {
         //ZooKeeper ,超时机制设置长一点
-        zooKeeper = new ZooKeeper(NJU_URL, 10000, new Watcher() {
+        zooKeeper = new ZooKeeper(LOCAL_URL, 10000, new Watcher() {
             @Override
             public void process(WatchedEvent watchedEvent) {
                 System.out.println(watchedEvent);
@@ -45,7 +47,7 @@ public class ApiTests {
         try {
             System.out.println("create node " + path);
             // EPHEMERAL 临时节点
-            System.out.println(zooKeeper.create(path, "ok".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL));
+            System.out.println(zooKeeper.create(path, "ok".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT));
         } catch (KeeperException | InterruptedException e) {
             e.printStackTrace();
         }

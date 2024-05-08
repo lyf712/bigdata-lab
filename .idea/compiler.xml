@@ -9,6 +9,7 @@
         <module name="course-labs" />
         <module name="bigdata-hdfs" />
         <module name="bigdata-zookeeper" />
+        <module name="bigdata-hbase" />
         <module name="bigdata-spark" />
         <module name="bigdata-mapreduce" />
       </profile>

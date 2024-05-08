@@ -11,6 +11,7 @@
     <modules>
         <module>base-learn</module>
         <module>course-labs</module>
+        <module>base-learn/bigdata-hbase</module>
     </modules>
     
     <properties>
